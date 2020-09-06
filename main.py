@@ -10,8 +10,9 @@ key_arr = []
 
 x_pos = 0
 y_pos = 0
-
+y=0
 for i in data:
+    
     x = len(i)
     for j in range(x):
         line = i[j]
@@ -29,15 +30,31 @@ for i in data:
                 # x-pos
                 if "x" in cords:
 
-                    key_dict["x_pos"] = cords["x"]
+                    key_dict["x_pos"] = cords["x"]+j
+                else:
+                    key_dict["x_pos"]=j
                 # y-pos
                 if "y" in cords:
 
-                    key_dict["y-pos"] = cords["y"]
+                    key_dict["y-pos"] = cords["y"]+y
+                else:
+                    key_dict["y_pos"]=y
+                if "w" in cords:
+                    key_dict["w"]=cords["w"]
+                else:
+                    key_dict["w"]=1
+                if "h" in cords:
+                    key_dict["h"]=cords["h"]
+                else:
+                    key_dict["h"]=1
             
+                
+                
+                
+                
             key_arr.append(key_dict)
             key_dict = {}
-
+    y+=1
 
 print(key_arr)
 # print(data[3][0]["y"])
